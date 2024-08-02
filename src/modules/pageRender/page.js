@@ -83,7 +83,7 @@ export default function(obj) {
 
         <link rel="manifest" href="manifest.webmanifest">
         <link rel="stylesheet" href="fonts/notosansmono.css">
-        <link rel="stylesheet" href="cobalt.css">
+        <link rel="stylesheet" href="../min/cobalt.css">
 
         <meta name="theme-color" content="#000000">
 
@@ -656,7 +656,7 @@ export default function(obj) {
                 'DownloadPopupDescriptionIOS'
             ])}
         </script>
-        <script src="cobalt.js"></script>
+        <script src="../min/cobalt.js"></script>
     </body>
 </html>
 `
