@@ -1,5 +1,5 @@
 import * as esbuild from "esbuild";
-import * as fs from "fs";
+import fs from 'fs-extra'
 import { loadLoc, languageList } from "../localization/manager.js";
 import { cleanHTML } from "./sub/utils.js";
 
@@ -27,10 +27,14 @@ export async function buildFront(commitHash, branch) {
             }
             fs.writeFileSync(`./build/${i}.html`, cleanHTML(page(params)));
         }
+
+        //Copy static files
+        await fs.copy('src/front/', 'build/')
+
         // build js & css
         await esbuild.build({
             entryPoints: ['src/front/cobalt.js', 'src/front/cobalt.css'],
-            outdir: 'build/min/',
+            outdir: 'build/',
             minify: true,
             loader: { '.js': 'js', '.css': 'css', },
             charset: 'utf8'
