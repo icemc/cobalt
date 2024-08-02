@@ -28,7 +28,7 @@ export async function buildFront(commitHash, branch) {
             fs.writeFileSync(`./build/${i}.html`, cleanHTML(page(params)));
         }
 
-        //Copy static files 
+        //Copy static files
         await fs.copy('src/front/', 'build/')
 
         // build js & css
